@@ -211,9 +211,10 @@ const SortingHat = () => {
             <h1 className="wizard-title">🎉 Congratulations! 🎉</h1>
             <motion.div
               className={`house-result house-${assignedHouse}`}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
+              initial={{ scale: 0, rotate: 0 }}
+              animate={{ scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              style={{ transform: 'translateZ(0) rotate(0deg) scale(1)' }}
             >
               <div className="house-icon">{house.icon}</div>
               <h2 className="wizard-title house-name">{house.name}</h2>

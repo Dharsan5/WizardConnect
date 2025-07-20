@@ -14,10 +14,32 @@ import { addActiveQuest, updateRecommendations } from '../store/slices/learningS
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const { user, house, points, level, experience } = useSelector(state => state.user);
-  const { houses } = useSelector(state => state.game);
-  const { activeQuests, recommendations } = useSelector(state => state.learning);
+  const { user, house = 'Gryffindor', points = 1250, level = 5, experience = 75 } = useSelector(state => state.user);
+  const { houses = {
+    gryffindor: { points: 2450, members: [] },
+    hufflepuff: { points: 2380, members: [] },
+    ravenclaw: { points: 2420, members: [] },
+    slytherin: { points: 2400, members: [] }
+  } } = useSelector(state => state.game);
+  const { activeQuests = [], recommendations = [] } = useSelector(state => state.learning);
   const [dailyStreak, setDailyStreak] = useState(7);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    // Update time every minute for dynamic greeting
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const getTimeGreeting = () => {
+    const hour = currentTime.getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 17) return "Good afternoon";
+    return "Good evening";
+  };
 
   useEffect(() => {
     // Simulate fetching personalized recommendations
@@ -86,6 +108,37 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      {/* Floating magical elements */}
+      <div className="magical-particles">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="particle"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+            style={{
+              position: 'absolute',
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: '4px',
+              height: '4px',
+              background: '#ffd700',
+              borderRadius: '50%',
+              boxShadow: '0 0 6px #ffd700',
+              zIndex: 1,
+            }}
+          />
+        ))}
+      </div>
+
       <motion.div 
         className="dashboard-header"
         initial={{ opacity: 0, y: -30 }}
@@ -93,7 +146,7 @@ const Dashboard = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="welcome-section">
-          <h1 className="wizard-title">Welcome back, Wizard!</h1>
+          <h1 className="wizard-title">{getTimeGreeting()}, Wizard!</h1>
           <p className="wizard-text">Ready to continue your magical learning journey?</p>
         </div>
         
