@@ -1,49 +1,112 @@
-# Getting Started with Create React App
+# 🧙‍♂️ WizardConnect - Magical Learning Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Making tech learning magical, personalized, and collaborative for students across India!**
 
-## Available Scripts
+## 🌟 Overview
 
-In the project directory, you can run:
+WizardConnect is an innovative gamified learning platform that transforms traditional tech education into an engaging, magical experience. By combining AI-powered personalization, immersive AR learning, competitive duels, and social collaboration, we're solving the challenge of dull and uninspiring educational content.
 
-### `npm start`
+## ✨ Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🎩 Smart Sorting Hat (AI Engine)
+- **Personalized Learning Recommendations**: AI analyzes your learning style, interests, and goals
+- **Adaptive Difficulty**: Dynamic content adjustment based on your progress
+- **Learning Path Optimization**: Custom-tailored educational journeys
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🏰 Houses & Points System
+- **Gamified Motivation**: Join Gryffindor, Hufflepuff, Ravenclaw, or Slytherin
+- **Achievement System**: Earn points, badges, and climb the leaderboards
+- **House Championships**: Compete with your house for ultimate glory
 
-### `npm test`
+### ⚔️ Magical Duels
+- **1v1 Coding Challenges**: Real-time competitive programming
+- **Knowledge Quizzes**: Test your tech knowledge against peers
+- **Bug Hunt Competitions**: Find and fix issues faster than opponents
+- **Design Battles**: UI/UX creativity competitions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📚 Enchanted Library
+- **Curated Learning Resources**: Hand-picked courses, tutorials, and guides
+- **Interactive Quests**: Gamified learning modules with rewards
+- **Progress Tracking**: Visual progress indicators and completion certificates
+- **Multi-format Content**: Videos, articles, interactive coding exercises
 
-### `npm run build`
+### 🥽 Holo-Classes (AR Learning)
+- **3D Visualizations**: Complex concepts brought to life in augmented reality
+- **Interactive Models**: Manipulate data structures, algorithms, and architectures
+- **Immersive Environments**: Learn in virtual coding environments
+- **WebXR Integration**: Browser-based AR without additional apps
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🤝 Wizard Network
+- **Mentor Matching**: Connect with industry experts and senior developers
+- **Peer Collaboration**: Find study partners and coding buddies
+- **Study Groups**: Join or create focused learning communities
+- **Real-time Chat**: Instant messaging and video calls
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend
+- **React.js** - Component-based UI development
+- **Redux Toolkit** - State management
+- **Framer Motion** - Smooth animations and transitions
+- **Three.js** - 3D graphics and AR experiences
 
-### `npm run eject`
+### Backend
+- **Node.js** - Server-side JavaScript runtime
+- **Express.js** - Web application framework
+- **Socket.IO** - Real-time communication
+- **MongoDB** - NoSQL database
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### AI & Machine Learning
+- **Python** - AI service development
+- **TensorFlow** - Deep learning and neural networks
+- **Flask** - AI microservice API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Install Frontend Dependencies**
+```bash
+npm install
+```
 
-## Learn More
+2. **Start the Application**
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Set up Backend** (in separate terminal)
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Run AI Engine** (in separate terminal)
+```bash
+cd ai-engine
+pip install -r requirements.txt
+python app.py
+```
+
+Visit `http://localhost:3000` to see the magic! ✨
+
+## 🎯 Features Implemented
+
+- ✅ Magical UI with Harry Potter theme
+- ✅ Smart Sorting Hat AI quiz
+- ✅ House system with points
+- ✅ Interactive dashboard
+- ✅ Coding duels arena
+- ✅ Enchanted library with resources
+- ✅ AR learning modules (Holo-Classes)
+- ✅ Wizard network for connections
+- ✅ Real-time features with Socket.IO
+- ✅ AI recommendation engine
+
+---
+
+**✨ Join the magic of learning at WizardConnect! ✨**
 
 ### Code Splitting
 

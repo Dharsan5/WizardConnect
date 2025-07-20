@@ -37,6 +37,12 @@ const gameSlice = createSlice({
     },
     addTournament: (state, action) => {
       state.tournaments.push(action.payload);
+    },
+    addPoints: (state, action) => {
+      const { userId, points } = action.payload;
+      // This would normally update user points in the user slice
+      // For now, just track the action
+      console.log(`Adding ${points} points to user ${userId}`);
     }
   }
 });
@@ -47,7 +53,8 @@ export const {
   updateLeaderboard, 
   setActiveChallenge, 
   updateHousePoints,
-  addTournament 
+  addTournament,
+  addPoints 
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

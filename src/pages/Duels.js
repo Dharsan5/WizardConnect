@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   TrophyIcon, 
-  SwordIcon, 
   ClockIcon,
   UserIcon,
-  LightningBoltIcon,
-  ShieldIcon
+  BoltIcon,
+  ShieldCheckIcon
 } from '@heroicons/react/24/outline';
 import { startDuel, endDuel, addPoints } from '../store/slices/gameSlice';
 
@@ -173,7 +172,7 @@ const Duels = () => {
             </div>
 
             <div className="vs-divider">
-              <LightningBoltIcon className="vs-icon" />
+              <BoltIcon className="vs-icon" />
               <span className="wizard-title">VS</span>
             </div>
 
@@ -298,7 +297,7 @@ const Duels = () => {
                     <p className="wizard-text opponent-house">{opponent.house}</p>
                     <div className="opponent-stats">
                       <span className="stat">
-                        <ShieldIcon className="stat-icon" />
+                        <ShieldCheckIcon className="stat-icon" />
                         Level {opponent.level}
                       </span>
                       <span className="stat">
@@ -318,7 +317,7 @@ const Duels = () => {
                       className="magical-button challenge-btn"
                       onClick={() => handleStartDuel(opponent)}
                     >
-                      <SwordIcon className="btn-icon" />
+                      <BoltIcon className="btn-icon" />
                       Challenge
                     </button>
                   ) : (

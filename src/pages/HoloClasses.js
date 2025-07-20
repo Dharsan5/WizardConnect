@@ -8,7 +8,8 @@ import {
   PlayIcon,
   PauseIcon,
   AdjustmentsHorizontalIcon,
-  SparklesIcon
+  SparklesIcon,
+  ClockIcon
 } from '@heroicons/react/24/outline';
 
 const HoloClasses = () => {

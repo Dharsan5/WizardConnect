@@ -9,7 +9,8 @@ import {
   StarIcon,
   AcademicCapIcon,
   HeartIcon,
-  PlusIcon
+  PlusIcon,
+  ClockIcon
 } from '@heroicons/react/24/outline';
 import { addMentor, joinStudyGroup } from '../store/slices/learningSlice';
 
