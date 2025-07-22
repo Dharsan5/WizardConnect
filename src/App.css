@@ -485,7 +485,7 @@
 }
 
 .stats-content {
-  space-y: 1.5rem;
+  appearance: 1.5rem;
 }
 
 .level-progress {
@@ -603,7 +603,7 @@
 }
 
 .recommendations-list {
-  space-y: 1rem;
+  appearance: 1rem;
 }
 
 .recommendation-item {
@@ -685,7 +685,7 @@
 }
 
 .leaderboard-list {
-  space-y: 0.75rem;
+  appearance: 0.75rem;
 }
 
 .leaderboard-item {
@@ -738,7 +738,7 @@
 }
 
 .quests-list {
-  space-y: 1rem;
+  appearance: 1rem;
 }
 
 .quest-item {
@@ -2454,6 +2454,18 @@
   margin-bottom: 1.5rem;
 }
 
+.duel-type-card.selected {
+  background: rgba(255, 215, 0, 0.2);
+  border: 2px solid rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  transform: scale(1.02);
+}
+
+.duel-type-card.selected .type-icon {
+  color: #ffd700 !important;
+  background: rgba(255, 215, 0, 0.2);
+}
+
 /* Active Duels */
 .active-duels {
   margin-bottom: 3rem;
@@ -2502,6 +2514,162 @@
   font-weight: bold;
   color: #ffd700;
   margin: 0 1rem;
+}
+
+/* Opponent Cards */
+.available-opponents {
+  margin-bottom: 3rem;
+}
+
+.opponents-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.opponent-card {
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.opponent-card:hover {
+  transform: translateY(-5px);
+}
+
+.opponent-card.house-gryffindor {
+  border-left: 4px solid #dc2626;
+}
+
+.opponent-card.house-hufflepuff {
+  border-left: 4px solid #eab308;
+}
+
+.opponent-card.house-ravenclaw {
+  border-left: 4px solid #2563eb;
+}
+
+.opponent-card.house-slytherin {
+  border-left: 4px solid #16a34a;
+}
+
+.opponent-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.opponent-avatar {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  width: 30px;
+  height: 30px;
+  color: #ffd700;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.status-indicator.online {
+  background: #22c55e;
+}
+
+.status-indicator.in-duel {
+  background: #f59e0b;
+}
+
+.status-indicator.offline {
+  background: #64748b;
+}
+
+.opponent-details {
+  flex: 1;
+}
+
+.opponent-name {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.opponent-house {
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.opponent-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.stat-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.challenge-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.challenge-btn:hover {
+  background: linear-gradient(45deg, #ffed4e, #ffd700);
+  transform: scale(1.05);
+}
+
+.challenge-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.challenge-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.challenge-btn .btn-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+}
+
+.specialty {
+  font-style: italic;
+  color: #ffd700;
+  font-size: 0.9rem;
 }
 
 .duel-info {
@@ -2620,6 +2788,32 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.duel-header .duel-timer {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(220, 38, 38, 0.2);
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  border-radius: 10px;
+  color: #ffd700;
+}
+
+.timer-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.timer-text {
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .duel-title {
@@ -2643,6 +2837,58 @@
   align-items: center;
   gap: 1rem;
   flex: 1;
+}
+
+.participant-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.participant-card.house-gryffindor {
+  border-left: 4px solid #dc2626;
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.participant-card.house-hufflepuff {
+  border-left: 4px solid #eab308;
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+}
+
+.participant-card.house-ravenclaw {
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.participant-card.house-slytherin {
+  border-left: 4px solid #16a34a;
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.3);
+}
+
+.participant-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.vs-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
 }
 
 .health-display {
@@ -2729,6 +2975,31 @@
   .wizard-network,
   .duels-page {
     padding: 100px 1rem 1rem;
+  }
+
+  .duel-types-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .opponents-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .opponent-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .opponent-stats {
+    justify-content: center;
+  }
+
+  .challenge-actions {
+    justify-content: center;
+    margin-top: 1rem;
   }
   
   .library-controls {

@@ -76,6 +76,9 @@ const Duels = () => {
   }, [showDuelScreen, duelTimer]);
 
   const handleStartDuel = (opponent) => {
+    console.log('Starting duel with opponent:', opponent);
+    console.log('Selected duel type:', duelType);
+    
     const newDuel = {
       id: Date.now(),
       opponent,
@@ -84,9 +87,11 @@ const Duels = () => {
       status: 'active'
     };
     
+    console.log('Created duel object:', newDuel);
     dispatch(startDuel(newDuel));
     setShowDuelScreen(true);
     setDuelTimer(600);
+    console.log('Duel screen should be visible now');
   };
 
   const handleDuelEnd = (result = 'timeout') => {
@@ -98,7 +103,7 @@ const Duels = () => {
     };
     
     dispatch(endDuel(duelResult));
-    dispatch(addPoints(duelResult.pointsEarned));
+    dispatch(addPoints({ userId: user?.id || 'default', points: duelResult.pointsEarned }));
     setShowDuelScreen(false);
     setDuelTimer(600);
   };
@@ -141,6 +146,9 @@ const Duels = () => {
   ];
 
   if (showDuelScreen && currentDuel) {
+    console.log('Rendering duel screen with currentDuel:', currentDuel);
+    const selectedDuelType = duelTypes.find(type => type.id === duelType);
+    
     return (
       <div className="duel-screen">
         <motion.div 
@@ -155,7 +163,7 @@ const Duels = () => {
               <span className="timer-text">{formatTime(duelTimer)}</span>
             </div>
             <h2 className="wizard-title duel-title">
-              {duelType.charAt(0).toUpperCase() + duelType.slice(1)} Duel
+              {selectedDuelType?.name || 'Coding Duel'}
             </h2>
           </div>
 
