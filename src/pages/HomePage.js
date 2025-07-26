@@ -9,6 +9,7 @@ import {
   TrophyIcon,
   AcademicCapIcon
 } from '@heroicons/react/24/outline';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   const features = [
@@ -157,6 +158,8 @@ const HomePage = () => {
           </div>
         </div>
       </motion.section>
+
+      <Footer />
     </div>
   );
 };

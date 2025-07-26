@@ -284,7 +284,16 @@ const Dashboard = () => {
                 </div>
                 <button 
                   className="magical-button rec-button"
-                  onClick={() => dispatch(addActiveQuest(rec))}
+                  onClick={() => {
+                    dispatch(addActiveQuest({
+                      ...rec,
+                      startDate: new Date(),
+                      progress: 0,
+                      isActive: true
+                    }));
+                    // You could also navigate to the quest/course page here
+                    // navigate(`/quest/${rec.id}`);
+                  }}
                 >
                   Start Quest
                 </button>

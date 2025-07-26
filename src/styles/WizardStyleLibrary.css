@@ -191,14 +191,36 @@
 }
 
 .category-filter {
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
+  overflow-x: auto;
+  padding: 0 2rem;
 }
 
 .categories-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
   gap: 1rem;
+  padding: 1rem 0;
+  min-width: max-content;
+  width: max-content;
+}
+
+.categories-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.categories-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.categories-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.5);
+  border-radius: 3px;
+}
+
+.categories-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.7);
 }
 
 .category-btn {
@@ -214,6 +236,10 @@
   transition: all 0.3s ease;
   font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 160px;
+  justify-content: center;
 }
 
 .category-btn:hover {
@@ -1873,6 +1899,297 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
+/* ========================= AR LEARNING INTERFACE ADDITIONAL STYLES ========================= */
+
+.ar-learning-interface {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 1000;
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.ar-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+}
+
+.ar-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ar-title {
+  font-size: 1.5rem;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.lesson-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lesson-progress .wizard-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.ar-content {
+  flex: 1;
+  display: flex;
+  height: calc(100vh - 100px);
+}
+
+.ar-viewport {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f23 100%);
+}
+
+.ar-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ar-sidebar {
+  width: 350px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.lesson-info.magical-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+}
+
+.current-lesson {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.lesson-description {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.ar-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.ar-controls .magical-button {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+.ar-controls .magical-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ar-tools.magical-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+}
+
+.ar-tools h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.tool-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.tool-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #667eea;
+}
+
+.tool-icon {
+  width: 18px;
+  height: 18px;
+  color: #667eea;
+  flex-shrink: 0;
+}
+
+.exit-ar {
+  margin-top: auto;
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.exit-ar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(244, 67, 54, 0.3);
+}
+
+.difficulty-badge {
+  border-radius: 15px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.difficulty-badge.beginner {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.difficulty-badge.intermediate {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.difficulty-badge.advanced {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Responsive AR Interface */
+@media (max-width: 1024px) {
+  .ar-content {
+    flex-direction: column;
+  }
+  
+  .ar-sidebar {
+    width: 100%;
+    height: 300px;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .ar-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .lesson-progress {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .ar-sidebar {
+    height: 250px;
+    padding: 1rem;
+  }
+  
+  .ar-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tool-buttons {
+    gap: 0.5rem;
+  }
+  
+  .lesson-progress {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 .question-text {
   color: #ffffff;
   font-size: 1.2rem;
@@ -2627,5 +2944,992 @@
   
   .welcome-section h1 {
     font-size: 1.8rem;
+  }
+}
+
+/* ========================= FOOTER STYLES ========================= */
+
+.wizard-footer {
+  background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 50%, #0f1419 100%);
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.wizard-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(120, 119, 198, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+/* Footer Brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffd700;
+}
+
+.brand-title {
+  font-size: 1.8rem;
+  margin: 0;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-link:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 215, 0, 0.2);
+}
+
+.social-link span {
+  font-size: 1.2rem;
+}
+
+/* Footer Links */
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.link-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.link-title {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin: 0 0 1rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-link:hover {
+  color: #ffd700;
+  border-bottom-color: rgba(255, 215, 0, 0.3);
+  transform: translateX(5px);
+}
+
+/* Newsletter */
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.newsletter-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.newsletter-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.newsletter-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter-input {
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: rgba(255, 215, 0, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.newsletter-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.heart-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #ff6b6b;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+}
+
+.legal-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: #ffd700;
+}
+
+/* Footer Responsive */
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-newsletter {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 3rem 1rem 1rem;
+  }
+  
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-legal {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .brand-header {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .newsletter-form {
+    align-items: stretch;
+  }
+}
+
+/* ========================= DUELS PAGE STYLES ========================= */
+
+.duels-page {
+  min-height: 100vh;
+  padding: 120px 2rem 2rem;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.duels-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.duels-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.duels-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Duel Types */
+.duel-types {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffd700;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.duel-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.duel-type-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.duel-type-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.duel-type-card.selected {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.duel-type-card.selected::before {
+  opacity: 1;
+}
+
+.duel-type-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.type-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.type-name {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.type-description {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Available Opponents */
+.available-opponents {
+  margin-bottom: 4rem;
+}
+
+.opponents-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.opponent-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.opponent-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--house-color, linear-gradient(90deg, #667eea 0%, #764ba2 100%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.opponent-card.house-gryffindor {
+  --house-color: linear-gradient(90deg, #740001, #a61e1e);
+}
+
+.opponent-card.house-hufflepuff {
+  --house-color: linear-gradient(90deg, #ecb939, #f4c842);
+}
+
+.opponent-card.house-ravenclaw {
+  --house-color: linear-gradient(90deg, #0e1a40, #1a2951);
+}
+
+.opponent-card.house-slytherin {
+  --house-color: linear-gradient(90deg, #1a472a, #2d5a3d);
+}
+
+.opponent-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.opponent-card:hover::before {
+  opacity: 1;
+}
+
+.challenge-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.challenge-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.challenge-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.magical-button.disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.magical-button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.opponent-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.opponent-avatar {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #1a1f2e;
+}
+
+.status-indicator.online {
+  background: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.status-indicator.offline {
+  background: #757575;
+}
+
+.status-indicator.in-duel {
+  background: #ff9800;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+}
+
+.opponent-details {
+  flex: 1;
+}
+
+.opponent-name {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.opponent-house {
+  margin: 0 0 0.75rem 0;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
+}
+
+.opponent-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stat-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #ffd700;
+}
+
+.specialty {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.challenge-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.challenge-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.magical-button.disabled {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+.magical-button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Duel History */
+.duel-history {
+  margin-bottom: 2rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duel-participants-mini {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.result-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.result-badge.win {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.result-badge.loss {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.result-badge.draw {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.duel-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.no-history {
+  padding: 3rem;
+  text-align: center;
+}
+
+/* Duel Screen */
+.duel-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a0f2e 0%, #2d1b69 50%, #4a347d 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.duel-arena {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.duel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.duel-timer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 69, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 69, 0, 0.4);
+}
+
+.timer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ff4500;
+}
+
+.timer-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff4500;
+  font-family: 'Courier New', monospace;
+}
+
+.duel-title {
+  font-size: 2rem;
+  color: #ffd700;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.duel-participants {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.participant {
+  display: flex;
+  justify-content: center;
+}
+
+.participant-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid;
+  min-width: 200px;
+}
+
+.participant-card.house-gryffindor {
+  border-color: #740001;
+  background: linear-gradient(135deg, rgba(116, 0, 1, 0.2), rgba(116, 0, 1, 0.1));
+}
+
+.participant-card.house-hufflepuff {
+  border-color: #ecb939;
+  background: linear-gradient(135deg, rgba(236, 185, 57, 0.2), rgba(236, 185, 57, 0.1));
+}
+
+.participant-card.house-ravenclaw {
+  border-color: #0e1a40;
+  background: linear-gradient(135deg, rgba(14, 26, 64, 0.3), rgba(14, 26, 64, 0.1));
+}
+
+.participant-card.house-slytherin {
+  border-color: #1a472a;
+  background: linear-gradient(135deg, rgba(26, 71, 42, 0.2), rgba(26, 71, 42, 0.1));
+}
+
+.participant-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #ffffff;
+  margin: 0 auto 1rem;
+}
+
+.participant-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.participant-card p {
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.health-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vs-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffd700;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.vs-divider span {
+  font-size: 1.5rem;
+  color: #ffd700;
+  font-weight: 700;
+}
+
+.duel-challenge {
+  margin-top: 2rem;
+}
+
+.challenge-container {
+  padding: 2rem;
+}
+
+.challenge-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.challenge-description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.code-editor {
+  margin-bottom: 2rem;
+}
+
+.code-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 300px;
+}
+
+.code-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.duel-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Responsive Design for Duels */
+@media (max-width: 768px) {
+  .duels-page {
+    padding: 100px 1rem 1rem;
+  }
+  
+  .duel-types-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .opponents-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .opponent-card {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .duel-participants {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .vs-divider {
+    order: 2;
+  }
+  
+  .duel-screen {
+    padding: 1rem;
+  }
+  
+  .duel-arena {
+    padding: 1rem;
+  }
+  
+  .duel-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .duel-actions {
+    flex-direction: column;
   }
 }
