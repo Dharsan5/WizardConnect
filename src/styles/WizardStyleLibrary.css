@@ -48,6 +48,121 @@
 .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
+/* ========================= GLOBAL WIZARD STYLES ========================= */
+
+/* Typography */
+.wizard-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.wizard-text {
+  font-family: 'Inter', sans-serif;
+  color: #e6e6fa;
+  line-height: 1.6;
+}
+
+/* Magical Buttons */
+.magical-button {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 0.6));
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1a1a2e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 
+    0 4px 15px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.magical-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.magical-button:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 1), rgba(255, 215, 0, 0.8));
+  border-color: rgba(255, 215, 0, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.magical-button:hover::before {
+  left: 100%;
+}
+
+.magical-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 15px rgba(255, 215, 0, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.magical-button.secondary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #e6e6fa;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.magical-button.secondary:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+
+/* Magical Background Effects */
+.magical-background {
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 30%, #16213e 70%, #0f3460 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.magical-background::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.magical-background > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ========================= MAGICAL LIBRARY PAGE STYLES ========================= */
 
 /* Main Library Container */
@@ -1499,5 +1614,1018 @@
   }
   50% {
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* ========================= SORTING HAT STYLES ========================= */
+
+.sorting-hat-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sorting-hat-container * {
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+}
+
+.sorting-hat-container .house-result,
+.sorting-hat-container .house-announcement,
+.sorting-hat-container .result-screen {
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+}
+
+.sorting-hat-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Analyzing Screen */
+.analyzing-screen {
+  text-align: center;
+  max-width: 500px;
+  z-index: 1;
+}
+
+.hat-icon {
+  font-size: 6rem;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.thinking-dots {
+  margin: 2rem 0;
+}
+
+.sparkle-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #ffd700;
+  animation: sparkle 1.5s infinite;
+}
+
+/* Result Screen */
+.result-screen {
+  text-align: center;
+  max-width: 600px;
+  z-index: 1;
+}
+
+.house-announcement {
+  margin-bottom: 3rem;
+  text-align: center;
+  transform: none !important;
+}
+
+.house-result {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: none !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.house-result::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent, rgba(255, 255, 255, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: exclude;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.house-gryffindor {
+  background: linear-gradient(135deg, rgba(116, 0, 1, 0.8), rgba(116, 0, 1, 0.4));
+  border-color: #740001;
+}
+
+.house-hufflepuff {
+  background: linear-gradient(135deg, rgba(236, 185, 57, 0.8), rgba(236, 185, 57, 0.4));
+  border-color: #ecb939;
+}
+
+.house-ravenclaw {
+  background: linear-gradient(135deg, rgba(14, 26, 64, 0.8), rgba(14, 26, 64, 0.4));
+  border-color: #0e1a40;
+}
+
+.house-slytherin {
+  background: linear-gradient(135deg, rgba(26, 71, 42, 0.8), rgba(26, 71, 42, 0.4));
+  border-color: #1a472a;
+}
+
+.house-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.house-name {
+  color: #ffffff;
+  font-size: 3rem;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+}
+
+.house-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* House Traits */
+.house-traits {
+  margin: 3rem 0;
+}
+
+.house-traits h3 {
+  color: #ffd700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.traits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.trait-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.trait-badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.trait-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: #ffd700;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+/* Sorting Screen */
+.sorting-screen {
+  max-width: 800px;
+  width: 100%;
+  z-index: 1;
+}
+
+.hat-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hat-header .hat-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.question-container {
+  text-align: center;
+}
+
+.question-title {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.question-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.options-container {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.option-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.option-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.option-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sorting-hat-container {
+    padding: 1rem;
+  }
+  
+  .house-result {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+  
+  .house-name {
+    font-size: 2rem;
+  }
+  
+  .house-icon {
+    font-size: 3rem;
+  }
+  
+  .hat-header .hat-icon {
+    font-size: 4rem;
+  }
+  
+  .traits-list {
+    gap: 0.5rem;
+  }
+  
+  .trait-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Force override for any motion library transforms */
+.sorting-hat-container [style*="transform"] {
+  transform: none !important;
+}
+
+.sorting-hat-container div[style*="transform"] {
+  transform: none !important;
+}
+
+/* ========================= DASHBOARD STYLES ========================= */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 120px 2rem 2rem;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 30%, #16213e 70%, #0f3460 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dashboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.house-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  border: 2px solid;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+}
+
+.house-display.house-gryffindor {
+  border-color: #740001;
+  background: linear-gradient(135deg, rgba(116, 0, 1, 0.3), rgba(116, 0, 1, 0.1));
+  box-shadow: 0 0 20px rgba(116, 0, 1, 0.3);
+}
+
+.house-display.house-hufflepuff {
+  border-color: #ecb939;
+  background: linear-gradient(135deg, rgba(236, 185, 57, 0.3), rgba(236, 185, 57, 0.1));
+  box-shadow: 0 0 20px rgba(236, 185, 57, 0.3);
+}
+
+.house-display.house-ravenclaw {
+  border-color: #0e1a40;
+  background: linear-gradient(135deg, rgba(14, 26, 64, 0.5), rgba(14, 26, 64, 0.2));
+  box-shadow: 0 0 20px rgba(14, 26, 64, 0.5);
+}
+
+.house-display.house-slytherin {
+  border-color: #1a472a;
+  background: linear-gradient(135deg, rgba(26, 71, 42, 0.3), rgba(26, 71, 42, 0.1));
+  box-shadow: 0 0 20px rgba(26, 71, 42, 0.3);
+}
+
+.house-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+}
+
+.house-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.house-icon-display {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.house-name {
+  margin: 0;
+}
+
+.house-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Magical Cards */
+.magical-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.magical-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.magical-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.magical-card:hover::before {
+  opacity: 1;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffd700;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.title-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ffd700;
+}
+
+/* Stats Overview */
+.stats-overview {
+  grid-column: span 4;
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.level-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.level-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+  border-radius: 6px;
+  transition: width 0.8s ease;
+  box-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.streak-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.streak-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ffd700;
+}
+
+/* Quick Actions */
+.quick-actions {
+  grid-column: span 8;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffd700;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.action-card {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.action-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.action-icon {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.action-icon svg {
+  width: 2rem;
+  height: 2rem;
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.action-card:hover .action-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.action-card:hover .action-icon::before {
+  width: 100%;
+  height: 100%;
+}
+
+.action-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.action-description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* Recommendations */
+.recommendations {
+  grid-column: span 6;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recommendation-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.recommendation-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateX(5px);
+}
+
+.rec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.rec-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.difficulty-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.difficulty-badge.beginner {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.difficulty-badge.intermediate {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.difficulty-badge.advanced {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.rec-description {
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.rec-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.rec-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* House Leaderboard */
+.house-leaderboard {
+  grid-column: span 6;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+}
+
+.leaderboard-item.gryffindor {
+  border-left: 4px solid #740001;
+}
+
+.leaderboard-item.hufflepuff {
+  border-left: 4px solid #ecb939;
+}
+
+.leaderboard-item.ravenclaw {
+  border-left: 4px solid #0e1a40;
+}
+
+.leaderboard-item.slytherin {
+  border-left: 4px solid #1a472a;
+}
+
+.house-position {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffd700;
+  min-width: 2rem;
+}
+
+.house-name {
+  flex: 1;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: capitalize;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.house-points {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Active Quests */
+.active-quests {
+  grid-column: span 12;
+}
+
+.quests-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.quest-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.quest-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.quest-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.quest-description {
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.quest-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quest-progress .wizard-text {
+  font-size: 0.9rem;
+  text-align: right;
+  color: #ffd700;
+}
+
+.no-quests {
+  text-align: center;
+  padding: 2rem;
+}
+
+.no-quests p {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Magical Particles */
+.magical-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  .stats-overview {
+    grid-column: span 8;
+  }
+  
+  .quick-actions {
+    grid-column: span 8;
+  }
+  
+  .recommendations,
+  .house-leaderboard {
+    grid-column: span 8;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 100px 1rem 1rem;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .welcome-section h1 {
+    font-size: 2rem;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stats-overview,
+  .quick-actions,
+  .recommendations,
+  .house-leaderboard,
+  .active-quests {
+    grid-column: span 1;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .magical-card {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-header {
+    padding: 1.5rem;
+  }
+  
+  .welcome-section h1 {
+    font-size: 1.8rem;
   }
 }

@@ -79,28 +79,32 @@ const Dashboard = () => {
       description: "Challenge another wizard",
       icon: TrophyIcon,
       link: "/duels",
-      color: "#ff6b6b"
+      color: "#ff6b6b",
+      gradient: "linear-gradient(135deg, #ff6b6b, #ee5a52)"
     },
     {
       title: "Visit Library",
       description: "Explore learning resources",
       icon: BookOpenIcon,
       link: "/library",
-      color: "#4ecdc4"
+      color: "#4ecdc4",
+      gradient: "linear-gradient(135deg, #4ecdc4, #44a08d)"
     },
     {
       title: "Join Holo-Class",
       description: "Immersive AR learning",
       icon: SparklesIcon,
       link: "/holo-classes",
-      color: "#45b7d1"
+      color: "#45b7d1",
+      gradient: "linear-gradient(135deg, #45b7d1, #3a9bc1)"
     },
     {
       title: "Find Mentors",
       description: "Connect with experts",
       icon: UserGroupIcon,
       link: "/network",
-      color: "#96ceb4"
+      color: "#96ceb4",
+      gradient: "linear-gradient(135deg, #96ceb4, #85c9a3)"
     }
   ];
 
@@ -110,29 +114,31 @@ const Dashboard = () => {
     <div className="dashboard">
       {/* Floating magical elements */}
       <div className="magical-particles">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
             className="particle"
             animate={{
-              y: [0, -20, 0],
-              x: [0, Math.random() * 20 - 10, 0],
+              y: [0, -30, 0],
+              x: [0, Math.random() * 40 - 20, 0],
               rotate: [0, 360],
+              scale: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
             }}
             style={{
               position: 'absolute',
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              width: '4px',
-              height: '4px',
-              background: '#ffd700',
+              width: `${4 + Math.random() * 6}px`,
+              height: `${4 + Math.random() * 6}px`,
+              background: `hsl(${45 + Math.random() * 15}, 100%, ${70 + Math.random() * 20}%)`,
               borderRadius: '50%',
-              boxShadow: '0 0 6px #ffd700',
+              boxShadow: `0 0 ${8 + Math.random() * 12}px currentColor`,
               zIndex: 1,
             }}
           />
@@ -151,15 +157,29 @@ const Dashboard = () => {
         </div>
         
         {house && (
-          <div className={`house-display house-${house.toLowerCase()}`}>
+          <motion.div 
+            className={`house-display house-${house.toLowerCase()}`}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="house-info">
-              <h3 className="house-name">{house}</h3>
+              <div className="house-header">
+                <div className="house-icon-display">
+                  {house.toLowerCase() === 'gryffindor' && '🦁'}
+                  {house.toLowerCase() === 'hufflepuff' && '🦡'}
+                  {house.toLowerCase() === 'ravenclaw' && '🦅'}
+                  {house.toLowerCase() === 'slytherin' && '🐍'}
+                </div>
+                <h3 className="house-name">{house}</h3>
+              </div>
               <div className="house-stats">
                 <span>Level {level}</span>
                 <span>{points} Points</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </motion.div>
 
@@ -214,7 +234,13 @@ const Dashboard = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <Link to={action.link} className="action-link">
-                  <div className="action-icon" style={{ color: action.color }}>
+                  <div 
+                    className="action-icon" 
+                    style={{ 
+                      background: action.gradient,
+                      color: '#ffffff'
+                    }}
+                  >
                     <action.icon />
                   </div>
                   <h4 className="wizard-title action-title">{action.title}</h4>

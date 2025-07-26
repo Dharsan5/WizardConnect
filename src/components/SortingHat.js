@@ -198,66 +198,42 @@ const SortingHat = () => {
       <div className="sorting-hat-container">
         <motion.div 
           className="result-screen"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="house-announcement"
-            initial={{ y: -50 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div className="house-announcement">
             <h1 className="wizard-title">🎉 Congratulations! 🎉</h1>
-            <motion.div
-              className={`house-result house-${assignedHouse}`}
-              initial={{ scale: 0, rotate: 0 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              style={{ transform: 'translateZ(0) rotate(0deg) scale(1)' }}
-            >
+            <div className={`house-result house-${assignedHouse}`}>
               <div className="house-icon">{house.icon}</div>
               <h2 className="wizard-title house-name">{house.name}</h2>
               <p className="wizard-text house-description">{house.description}</p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            className="house-traits"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
+          <div className="house-traits">
             <h3 className="wizard-title">Your Traits:</h3>
             <div className="traits-list">
               {house.traits.map((trait, index) => (
-                <motion.span
+                <span
                   key={trait}
                   className="trait-badge"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
                 >
                   <StarIcon className="trait-icon" />
                   {trait}
-                </motion.span>
+                </span>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="action-buttons"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.5 }}
-          >
+          <div className="action-buttons">
             <button className="magical-button" onClick={() => window.location.href = '/dashboard'}>
               Enter Your House
             </button>
             <button className="magical-button secondary" onClick={resetSorting}>
               Take Quiz Again
             </button>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     );

@@ -12,6 +12,7 @@ import HoloClasses from './pages/HoloClasses';
 import WizardNetwork from './pages/WizardNetwork';
 import Navbar from './components/Navbar';
 import './App.css';
+import './styles/WizardStyleLibrary.css';
 
 function App() {
   return (
